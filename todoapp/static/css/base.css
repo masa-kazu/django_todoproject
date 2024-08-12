@@ -1,0 +1,121 @@
+body{
+    background-color:lightgreen;
+    font-family: "Monomaniac One", sans-serif;
+    padding-top: 55px;
+}
+a {
+    color: #595959;
+    text-decoration: none;
+}
+h1 {
+    margin: 0;
+}
+.todoAppWrapper{
+    max-width: 530px;
+    margin: 0 auto;
+    background-color:white;
+    box-shadow: 0px 0px 51px -5px #777777;
+    border-radius: 10px;
+}
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background: rgb(150,250,251);
+    background: linear-gradient(0deg, rgba(150,250,251,1) 0%, rgba(245,169,4,1) 100%);
+    border-radius: 10px 10px 0 0;
+    color: white;
+}
+.taskWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.239);
+}
+.taskTitle{
+    display: flex;
+    align-items: center;
+}
+.taskCompletedIcon{
+    height: 20px;
+    width: 20px;
+    background-color: lightgreen;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.taskInCompletedIcon{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(34, 36, 34);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.btn-loginAndLogout{
+    color: white;
+    text-decoration: none;
+    background-color: lightsalmon;
+    border: lightsalmon;
+    border-radius: 25%;
+    margin: 10px;
+}
+.btn-login{
+    color: white;
+    text-decoration: none;
+    background-color: lightsalmon;
+    border: lightsalmon;
+    border-radius: 25%;
+    margin: 10px;
+}
+.btn-add{
+    color: white;
+    text-decoration: none;
+    background-color: lightsalmon;
+    border: lightsalmon;
+    border-radius: 25%;
+    margin: 10px;
+}
+.deleteButton{
+    color: red;
+}
+.searchWrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+.searchInput{
+    height: 24px;
+    outline: none;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    padding: 2px 4px;
+    width: 160px !important;
+}
+.searchButton{
+    border: 1px solid green;
+    padding: 4px 10px;
+    background-color: #fafafa;
+    color: green;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.4s;
+}
+.searchButton:hover{
+    background-color: green;
+    color: white;
+}
+.addButton{
+    font-size: 32px;
+    color: green;
+}
+label{
+    display: block;
+}
+input[type="text"],
+textarea{
+    width: 100%;
+}
+.Wrapper{
+    padding: 20px;
+}
