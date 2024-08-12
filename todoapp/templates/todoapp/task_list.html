@@ -1,14 +1,19 @@
 {% extends 'todoapp/base.html' %}
 {% block content %}
-<h1>todoリスト</h1>
+
+<div class="header">
+    <h1>{{request.user}}のタスク</h1>
+</div>
+
+{% comment %} <h1>todoリスト</h1>
 <a href="{% url 'create-task' %}">タスク追加</a>
 
 <form method="GET">
     <input type="text" name="search" value="{{search}}">
     <input type="submit" value="検索">
-</form>
+</form> {% endcomment %}
 
-<table>
+{% comment %} <table>
     <tr>
         <th>タスク</th>
     </tr>
@@ -20,10 +25,23 @@
         <td><a href="{% url 'delete-task' task.id %}">削除</a></td>
     </tr>
     {% endfor %}
-</table>
+</table> {% endcomment %}
+
+<div class="tasksWrapper">
+    {% for task in tasks %}
+    <div class="taskWrapper">
+        <div class="taskTitle">
+            <a href="{% url 'task' task.id %}">{{task}}</a>
+        </div>
+        <a href="{% url 'edit-task' task.id %}" class="editButton">編集</a>
+        <a href="{% url 'delete-task' task.id %}" class="deleteButton">×</a>
+    </div>
+    {% endfor %}
+</div>
+
 <div class="loginAndLogout">
 {% if request.user.is_authenticated %}
-<p>{{request.user}}</p>
+{% comment %}<p>{{request.user}}</p>{% endcomment %}
 <form method="POST" action="{% url 'logout' %}">
     {% csrf_token %}
     <button type="submit">ログアウト</button>
