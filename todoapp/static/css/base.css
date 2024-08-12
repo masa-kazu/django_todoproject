@@ -32,3 +32,21 @@ h1 {
     padding: 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.239);
 }
+.taskTitle{
+    display: flex;
+    align-items: center;
+}
+.taskCompletedIcon{
+    height: 20px;
+    width: 20px;
+    background-color: lightgreen;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.taskInCompletedIcon{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(34, 36, 34);
+    border-radius: 50%;
+    margin-right: 10px;
+}
