@@ -5,61 +5,51 @@
     <h1>{{request.user}}のタスク</h1>
 </div>
 
-{% comment %} <h1>todoリスト</h1>
-<a href="{% url 'create-task' %}">タスク追加</a>
 
-<form method="GET">
-    <input type="text" name="search" value="{{search}}">
-    <input type="submit" value="検索">
-</form> {% endcomment %}
-
-{% comment %} <table>
-    <tr>
-        <th>タスク</th>
-    </tr>
-    {% for task in tasks %} 
-    <tr>
-        <td>{{task.title}}</td>
-        <td><a href="{% url 'task' task.id %}">確認</a></td>
-        <td><a href="{% url 'edit-task' task.id %}">編集</a></td>
-        <td><a href="{% url 'delete-task' task.id %}">削除</a></td>
-    </tr>
-    {% endfor %}
-</table> {% endcomment %}
+<div class="searchWrapper">
+    <form method="GET">
+        <input class="searchInput" type="text" name="search" value="{{search}}">
+        <input class="searchButton" type="submit" value="検索">
+    </form>
+    <a class="addButton" href="{% url 'create-task' %}">＋</a>
+</div>
 
 <div class="tasksWrapper">
     {% for task in tasks %}
     <div class="taskWrapper">
-        {% comment %}タスクが完了してたら{% endcomment %}
         {% if task.completed %}
         <div class="taskTitle">
             <div class="taskCompletedIcon"></div>
             <s><a href="{% url 'task' task.id %}">{{task}}</a></s>
         </div>
-        <a href="{% url 'edit-task' task.id %}" class="editButton">編集</a>
-        <a href="{% url 'delete-task' task.id %}" class="deleteButton">×</a>
-        {% comment %}タスクが未完了{% endcomment %}
+        <div>
+            <a href="{% url 'edit-task' task.id %}" class="editButton">&#x270e;</a>
+            <a href="{% url 'delete-task' task.id %}" class="deleteButton">×</a>
+        </div>
         {% else %}
         <div class="taskTitle">
             <div class="taskInCompletedIcon"></div>
             <a href="{% url 'task' task.id %}">{{task}}</a>
         </div>
-        <a href="{% url 'edit-task' task.id %}" class="editButton">編集</a>
-        <a href="{% url 'delete-task' task.id %}" class="deleteButton">×</a>
+        <div>
+            <a href="{% url 'edit-task' task.id %}" class="editButton">&#x270e;</a>
+            <a href="{% url 'delete-task' task.id %}" class="deleteButton">×</a>
+        </div>
         {% endif %}
     </div>
+    {% empty %}
+    <h3 style="padding-left:20px">タスクはありません</h3>
     {% endfor %}
 </div>
 
 <div class="loginAndLogout">
 {% if request.user.is_authenticated %}
-{% comment %}<p>{{request.user}}</p>{% endcomment %}
-<form method="POST" action="{% url 'logout' %}">
+<form method="POST" action="{% url 'logout' %}" style="padding: 20px">
     {% csrf_token %}
-    <button type="submit">ログアウト</button>
+    <button class="searchButton" type="submit">ログアウト</button>
 </form>
 {% else %}
-<a href="{% url 'login' %}">ログイン</a>
+<a class="searchButton" href="{% url 'login' %}">ログイン</a>
 {% endif %}
 </div>
 {% endblock content %}
