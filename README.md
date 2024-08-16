@@ -1,4 +1,5 @@
-## Djangoを使用してTodoリスト作成　　　　　　　　
+## Djangoを使用してTodoリスト作成　
+venv (virtualenv) を使用
 
 ## 機能：CRUD、ログイン・ログアウト、ユーザ登録、タスク検索
 
